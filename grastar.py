@@ -4,7 +4,7 @@ from random import randrange
 class Simulation:
     def __init__(self, num_stars, max_depth):
         pygame.init()
- 
+        
         self.screen = pygame.display.set_mode((620, 480))
         pygame.display.set_caption("3D Starfield Simulation")
         pygame.font.init() # you have to call this at the start, 
@@ -64,7 +64,7 @@ class Simulation:
     def run(self):
         """ Main Loop """
         while 1:
-            # Lock the framerate at 50 FPS.
+             #Lock the framerate at 50 FPS.
             self.clock.tick(25)
  
             # Handle events.
@@ -76,7 +76,5 @@ class Simulation:
             self.move_and_draw_stars()
             pygame.display.flip()
             
-
- 
 if __name__ == "__main__":
     Simulation(512, 32).run()

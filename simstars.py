@@ -1,8 +1,8 @@
 import pygame
 from random import randrange
  
-MAX_STARS  = 250
-STAR_SPEED = 2
+MAX_STARS  = 500
+STAR_SPEED = 1
  
 def init_stars(screen):
   """ Create the starfield """
@@ -32,13 +32,19 @@ def main():
   pygame.init()
   screen = pygame.display.set_mode((640,480))
   pygame.display.set_caption("Starfield Simulation")
+  pygame.font.init() # you have to call this at the start, 
+                   # if you want to use this module.
+  myfont = pygame.font.SysFont('Comic Sans MS', 30)
+  textsurface = myfont.render('stars', False, (0, 0, 255))  
+  screen.blit(textsurface,(250,250))
+  pygame.display.flip()      
   clock = pygame.time.Clock()
  
   init_stars(screen)
  
   while True:
     # Lock the framerate at 50 FPS
-    clock.tick(50)
+    clock.tick(25)
  
     # Handle events
     for event in pygame.event.get():
